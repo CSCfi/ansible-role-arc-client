@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-arc-client
+#
+  - name: install packages for arc-client
+    yum: pkg={{ item }} state=installed
+    with_items: arc_client_packages

@@ -1,0 +1,7 @@
+---
+# defaults file for ansible-role-arc-client
+#
+arc_client_packages:
+ - fetch-crl
+ - nordugrid-arc-client
+ - nordugrid-arc-plugins-globus
