@@ -6,3 +6,5 @@ arc_client_packages:
  - nordugrid-arc-client
  - nordugrid-arc-plugins-globus
 fetch_crl_noerrors: True
+repo_egi_trustanchors: True
+

@@ -7,3 +7,11 @@
 
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
+
+  - name: add EGI Trustanchors REPO
+    get_url: url="http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo" dest=/etc/yum.repos.d/egi-trustanchors.repo mode=0644 owner=root
+    when: repo_egi_trustanchors
+
+  - name: install ca-policy-egi-core
+    yum: name=ca-policy-egi-core state=pressent
+    when: repo_egi_trustanchors
