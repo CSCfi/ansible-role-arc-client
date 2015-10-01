@@ -5,4 +5,4 @@ arc_client_packages:
  - fetch-crl
  - nordugrid-arc-client
  - nordugrid-arc-plugins-globus
-fetch_crl_noerrors: False
+fetch_crl_noerrors: True
