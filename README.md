@@ -11,6 +11,8 @@ Repositories that have the Nordugrid ARC client and the related packages.
 Role Variables
 --------------
 
+   - fgci\_install: True
+     If True then install the FGCI repo for EL7
 
 Dependencies
 ------------

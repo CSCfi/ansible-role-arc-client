@@ -8,4 +8,4 @@ arc_client_packages:
  - fgi-lsc-files
 fetch_crl_noerrors: True
 repo_egi_trustanchors: True
-
+fgci_install: True
