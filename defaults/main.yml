@@ -9,3 +9,4 @@ arc_client_packages:
 fetch_crl_noerrors: True
 repo_egi_trustanchors: True
 fgci_install: True
+#http_proxy: 10.1.1.2
