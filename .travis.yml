@@ -37,7 +37,7 @@ script:
   - DOCKER_CONTAINER_ID=$(docker ps | grep ${IMAGE_BUILD_PLATFORM} | awk '{print $1}')
   - docker logs $DOCKER_CONTAINER_ID
 # Prepare test environment and print some more debug out
-  - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'sudo yum -y install make && mkdir -p /opt/ansible/'
+  - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'mkdir -p /opt/ansible/'
   - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'if ! [ -d /opt/ansible/ansible ] || ! bash -c "cd /opt/ansible/ansible && git branch"; then git clone http://github.com/ansible/ansible.git /opt/ansible/ansible ; fi'
   - >
     export ANSIBLE_VERSION=$(docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'cd /opt/ansible/ansible && \
