@@ -14,7 +14,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # inspiration: https://github.com/dockerimages/docker-systemd/blob/master/15.10/Dockerfile
-RUN apt-get update && apt-get install systemd-services && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y systemd-services && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN cd /lib/systemd/system/sysinit.target.wants/; ls | grep -v systemd-tmpfiles-setup | xargs rm -f $1 \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
 rm -f /etc/systemd/system/*.wants/*;\
