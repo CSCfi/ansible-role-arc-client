@@ -23,6 +23,7 @@
     get_url: url="http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo" dest=/etc/yum.repos.d/egi-trustanchors.repo mode=0644 owner=root
     when: repo_egi_trustanchors
 
-  - name: install ca-policy-egi-core
-    yum: name=ca-policy-egi-core state=present
+  - name: install repo_egi_packages
+    yum: name={{ item }} state=present
     when: repo_egi_trustanchors
+    with_items: repo_egi_packages
