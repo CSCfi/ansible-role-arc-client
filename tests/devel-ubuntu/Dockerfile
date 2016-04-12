@@ -9,7 +9,7 @@ RUN \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget python-pip && \
-  apt-get install -y libyaml-dev libyaml python-dev python-jinja2 python-httplib2 python-keyczar python-paramiko && \
+  apt-get install -y libyaml-dev python-dev python-jinja2 python-httplib2 python-keyczar python-paramiko && \
   pip install pyrax pysphere boto passlib dnspython && \
   rm -rf /var/lib/apt/lists/*
 
