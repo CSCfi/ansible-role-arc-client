@@ -45,3 +45,4 @@ ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
 ENTRYPOINT ["/lib/systemd/systemd"]
+CMD ["/bin/bash"]
