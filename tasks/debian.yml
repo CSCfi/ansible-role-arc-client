@@ -19,9 +19,13 @@
   - name: start fetch-crl-cron
     service: name=fetch-crl-cron state=started enabled=yes
 
-#  - name: add EGI Trustanchors REPO
-#    get_url: url="http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo" dest=/etc/yum.repos.d/egi-trustanchors.repo mode=0644 owner=root
-#    when: repo_egi_trustanchors
+  - name: add apt EGI trustanchors key
+    apt_key: url=https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3 state=present
+    when: repo_egi_trustanchors
+
+  - name: add apt EGI Trustanchors REPO
+    apt_repository: repo='deb http://repository.egi.eu/sw/production/cas/1/current egi-igtf core' state=present
+    when: repo_egi_trustanchors
 
   - name: apt install ca-policy-egi-core
     apt: name=ca_policy_egi_core state=present
