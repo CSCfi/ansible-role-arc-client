@@ -66,8 +66,8 @@ script:
   - >
     docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'cd /opt/ansible/ansible &&
        sudo pip install tox sphinx &&
-       sudo pip install PyYAML 2>/dev/null &&'
-       sudo pip install paramiko jinja2 httplib2 passlib nose mock '
+       sudo pip install PyYAML 2>/dev/null &&
+       sudo pip install paramiko jinja2 httplib2 passlib nose mock'
   # Testing of this ansible-role:
   - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c "/$ROLETOTEST/tests/test-in-docker-image.sh"
 #  - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c 'cd /opt/ansible/ansible && make tests '
