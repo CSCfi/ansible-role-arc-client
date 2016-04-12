@@ -8,7 +8,7 @@ RUN yum clean all && \
     yum -y groups mark install "Development Tools" && \
     yum -y groups mark convert "Development Tools" && \
     yum -y groupinstall "Development Tools" && \
-    yum -y install make libffi-devel openssl-devel && \
+    yum -y install make tree libffi-devel openssl-devel && \
     yum -y install python-devel MySQL-python sshpass && \
     yum -y install acl sudo && \
     sed -i -e 's/^Defaults.*requiretty/Defaults    !requiretty/' -e 's/^%wheel.*ALL$/%wheel    ALL=(ALL)    NOPASSWD: ALL/' /etc/sudoers && \
