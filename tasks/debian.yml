@@ -28,5 +28,5 @@
     when: repo_egi_trustanchors
 
   - name: apt install ca-policy-egi-core
-    apt: name=ca_policy_egi_core state=present
+    apt: name=ca-policy-egi-core state=present
     when: repo_egi_trustanchors
