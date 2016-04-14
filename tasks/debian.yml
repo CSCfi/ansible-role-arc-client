@@ -8,6 +8,10 @@
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
 
+  - name: template in /etc/vomses
+    template: src=vomses.j2 dest=/etc/vomses mode=0644 owner=root group=root backup=yes
+    when: arc_manage_vomses
+
   - name: start fetch-crl-cron
     service: name=fetch-crl-cron state=started enabled=yes
 
@@ -22,4 +26,4 @@
   - name: apt install repo_egi_packages
     apt: name={{ item }} state=present
     when: repo_egi_trustanchors
-    with_items: repo_egi_packages
+    with_items: repo_egi_deb_packages
