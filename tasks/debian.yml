@@ -9,7 +9,7 @@
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
 
   - name: template in /etc/vomses
-    template: src=vomses.j2 dest=/etc/vomses mode=0644 owner=root group=root backup=yes
+    template: src=deb_vomses.j2 dest=/etc/vomses mode=0644 owner=root group=root backup=yes
     when: arc_manage_vomses
 
   - name: start fetch-crl-cron
