@@ -11,7 +11,7 @@
 
   - name: install packages for arc-client
     yum: pkg={{ item }} state=installed
-    with_items: arc_client_packages
+    with_items: "{{ arc_client_packages }}"
 
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
@@ -26,4 +26,4 @@
   - name: install repo_egi_packages
     yum: name={{ item }} state=present
     when: repo_egi_trustanchors
-    with_items: repo_egi_packages
+    with_items: "{{ repo_egi_packages }}"
