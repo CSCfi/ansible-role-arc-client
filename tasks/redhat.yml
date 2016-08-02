@@ -27,3 +27,6 @@
     yum: name={{ item }} state=present
     when: repo_egi_trustanchors
     with_items: "{{ repo_egi_packages }}"
+
+  - name: exclude IGTF CAs from Nordugrid repo
+    lineinfile: dest=/etc/yum.repos.d/nordugrid-updates.repo insertafter="^\[nordugrid-updates]" line="exclude=ca_*" 
