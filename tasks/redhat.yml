@@ -30,8 +30,8 @@
 
   - name: check if there's a nordugrid-updates.repo
     stat: path=/etc/yum.repos.d/nordugrid-updates.repo
-    register: arc_frontend_NG-updates
+    register: arc_frontend_excludeCAs
 
   - name: exclude IGTF CAs from Nordugrid repo
     lineinfile: dest=/etc/yum.repos.d/nordugrid-updates.repo insertafter="^\[nordugrid-updates]" line="exclude=ca_*"
-    when: arc_frontend_NG-updates.stat.exists
+    when: arc_frontend_excludeCAs.stat.exists
