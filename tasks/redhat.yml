@@ -33,5 +33,10 @@
     register: arc_frontend_excludeCAs
 
   - name: exclude IGTF CAs from Nordugrid repo
-    lineinfile: dest=/etc/yum.repos.d/nordugrid-updates.repo insertafter="^\[nordugrid-updates]" line="exclude=ca_*"
+    ini_file: dest=/etc/yum.repos.d/nordugrid-updates.repo
+        section=nordugrid-updates
+        option=exclude
+        value=ca_*
+        no_extra_spaces=True
+        backup=yes
     when: arc_frontend_excludeCAs.stat.exists
