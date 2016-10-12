@@ -23,3 +23,5 @@ arc_deb_client_packages:
  - nordugrid-arc-plugins-globus
 # set arc_manage_vomses to False to _not_ template in the vomses file on Debian family. For EL7 /etc/vomses comes from the fgi-repofiles rpm.
 arc_manage_vomses: True
+# If True, overwrite the /etc/arc/client.conf file with a FGI/FGCI sensible default
+arc_client_conf: True
