@@ -40,3 +40,8 @@
         no_extra_spaces=True
         backup=yes
     when: arc_frontend_excludeCAs.stat.exists
+
+  - name: Add ARC client.conf with sensible defaults
+    copy: src=client.conf dest=/etc/arc/client.conf owner=root mode=0644
+    when: arc_client_conf
+
