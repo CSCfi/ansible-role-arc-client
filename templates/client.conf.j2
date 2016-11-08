@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+{% if arc_client_conf_settings is defined %}
+{{ arc_client_conf_settings }}
+{% else %}
+
+[registry/index1]
+url=ldap://giis1.fgi.csc.fi:2135/Mds-Vo-name=Finland,o=grid
+registryinterface=org.nordugrid.ldapegiis
+default=yes
+[registry/index2]
+url=ldap://giis2.fgi.csc.fi:2135/Mds-Vo-name=Finland,o=grid
+registryinterface=org.nordugrid.ldapegiis
+default=yes
+
+{% endif %}

@@ -28,7 +28,7 @@
     when: repo_egi_trustanchors
     with_items: "{{ repo_egi_deb_packages }}"
 
-  - name: Add ARC client.conf with sensible defaults
-    copy: src=client.conf dest=/etc/arc/client.conf owner=root mode=0644
+  - name: Template ARC client.conf with sensible defaults
+    template: src=client.conf.j2 dest=/etc/arc/client.conf owner=root mode=0644
     when: arc_client_conf
 
