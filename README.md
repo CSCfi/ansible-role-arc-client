@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-arc-client.svg)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-arc-client)
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-arc-client.svg)](https://travis-ci.org/CSCfi/ansible-role-arc-client)
 ansible-role-arc-client
 =========
 
