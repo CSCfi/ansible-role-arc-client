@@ -70,11 +70,6 @@ rm -Rf ansible
 
 }
 
-function install_ansible_24() {
-
-#yum install --nogpgcheck -y http://idris.fgi.csc.fi/ansible/ansible-2.4.0.0-100.git201709190223.d14467b.HEAD.el7.noarch.rpm
-
-}
 
 function install_os_deps() {
 echo "TEST: installing os deps"
