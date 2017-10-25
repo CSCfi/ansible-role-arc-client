@@ -15,8 +15,7 @@ env:
   - IMAGE_BUILD_PLATFORM=devel-centos7
   - IMAGE_BUILD_PLATFORM=pip-ubuntu
 
-install:
-  - npm install -g validate-dockerfile
+install: travis_wait 25 npm install -g validate-dockerfile
 
 before_script:
   # TESTDIR = Where the stable-centos/Dockerfile is located

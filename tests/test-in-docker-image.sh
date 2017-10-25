@@ -70,6 +70,7 @@ rm -Rf ansible
 
 }
 
+
 function install_os_deps() {
 echo "TEST: installing os deps"
 
@@ -128,6 +129,7 @@ set -e
 function main(){
 #    install_os_deps
 #    install_ansible_devel
+#    install_ansible_24
     show_version
 #    tree_list
 #    test_install_requirements

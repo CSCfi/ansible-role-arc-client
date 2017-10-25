@@ -8,10 +8,10 @@ APT::Get::Assume-Yes "true"; \n\
 APT::Get::force-yes "true"; \n\
 APT::Install-Suggests "0";' > /etc/apt/apt.conf.d/01buildconfig
 RUN mkdir -p  /etc/apt/sources.d/
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse \n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse \n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse \n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse" > /etc/apt/sources.d/ubuntu-mirrors.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted universe multiverse \n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-updates main restricted universe multiverse \n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-backports main restricted universe multiverse \n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-security main restricted universe multiverse" > /etc/apt/sources.d/ubuntu-mirrors.list
 RUN apt-get update && apt-get install systemd sudo && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN cd /lib/systemd/system/sysinit.target.wants/; ls | grep -v systemd-tmpfiles-setup | xargs rm -f $1 \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
@@ -36,7 +36,7 @@ RUN \
   apt-get install -y byobu curl git htop man unzip vim wget python-pip tree && \
   apt-get install -y libyaml-dev python-dev python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools python3-setuptools && \
   apt-get install -y libffi-dev libssl-dev && \
-  pip install pyrax pysphere boto passlib dnspython
+  pip install setuptools pyrax pysphere boto passlib dnspython
 
 RUN mkdir /etc/ansible/
 RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
