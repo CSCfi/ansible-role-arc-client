@@ -15,7 +15,7 @@ env:
   - IMAGE_BUILD_PLATFORM=devel-centos7
   - IMAGE_BUILD_PLATFORM=devel-ubuntu1510
 
-install:
+install: travis_wait 25
   - npm install -g validate-dockerfile
 
 before_script:
