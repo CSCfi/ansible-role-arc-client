@@ -24,9 +24,8 @@
     when: repo_egi_trustanchors
 
   - name: install repo_egi_packages
-    yum: name={{ item }} state=present
+    yum: name={{ repo_egi_packages }} state=present
     when: repo_egi_trustanchors
-    with_items: "{{ repo_egi_packages }}"
 
   - name: check if there's a nordugrid-updates.repo
     stat: path=/etc/yum.repos.d/nordugrid-updates.repo
