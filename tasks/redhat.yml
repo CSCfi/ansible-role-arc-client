@@ -10,8 +10,7 @@
     when: ansible_distribution_major_version == "7"
 
   - name: install packages for arc-client
-    yum: pkg={{ item }} state=installed
-    with_items: "{{ arc_client_packages }}"
+    yum: pkg={{ arc_client_packages }} state=installed
 
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
