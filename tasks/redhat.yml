@@ -25,11 +25,11 @@
 
   - name: add EGI Trustanchors REPO
     get_url: url="http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo" dest=/etc/yum.repos.d/egi-trustanchors.repo mode=0644 owner=root
-    when: repo_egi_trustanchors
+    when: repo_egi_trustanchors|bool
 
   - name: install repo_egi_packages
     yum: name={{ repo_egi_packages }} state=present
-    when: repo_egi_trustanchors
+    when: repo_egi_trustanchors|bool
 
   - name: check if there's a nordugrid-updates.repo
     stat: path=/etc/yum.repos.d/nordugrid-updates.repo
@@ -46,5 +46,5 @@
 
   - name: Template ARC client.conf with sensible defaults
     template: src=client.conf.j2 dest=/etc/arc/client.conf owner=root mode=0644
-    when: arc_client_conf
+    when: arc_client_conf|bool
 

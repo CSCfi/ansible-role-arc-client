@@ -10,25 +10,25 @@
 
   - name: template in /etc/vomses
     template: src=deb_vomses.j2 dest=/etc/vomses mode=0644 owner=root group=root backup=yes
-    when: arc_manage_vomses
+    when: arc_manage_vomses|bool
 
   - name: start fetch-crl-cron
     service: name=fetch-crl-cron state=started enabled=yes
 
   - name: add apt EGI trustanchors key
     apt_key: url=https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3 state=present
-    when: repo_egi_trustanchors
+    when: repo_egi_trustanchors|bool
 
   - name: add apt EGI Trustanchors REPO
     apt_repository: repo='deb http://repository.egi.eu/sw/production/cas/1/current egi-igtf core' state=present
-    when: repo_egi_trustanchors
+    when: repo_egi_trustanchors|bool
 
   - name: apt install repo_egi_packages
     apt: name={{ item }} state=present
-    when: repo_egi_trustanchors
+    when: repo_egi_trustanchors|bool
     with_items: "{{ repo_egi_deb_packages }}"
 
   - name: Template ARC client.conf with sensible defaults
     template: src=client.conf.j2 dest=/etc/arc/client.conf owner=root mode=0644
-    when: arc_client_conf
+    when: arc_client_conf|bool
 
