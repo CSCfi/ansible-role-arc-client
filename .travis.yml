@@ -1,8 +1,4 @@
-language: python
-
-sudo: required
-dist: trusty
-group: edge
+language: minimal
 
 services:
   - docker
