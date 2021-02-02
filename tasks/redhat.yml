@@ -1,6 +1,6 @@
 ---
 # tasks file for ansible-role-arc-client
-#
+#i
 #
   - name: print fgci_install
     debug: var=fgci_install verbosity=1
@@ -8,12 +8,31 @@
   - name: Remove ARC5 client packages
     yum: name={{arc5_client_packages}} state=absent
 
+  - name: Remove ARC5 key
+    rpm_key:
+      state: absent
+      key: 240a5db2
+
   - name: Remove fgi-lsc-files package
     yum: name=fgi-lsc-files state=absent
 
   - name: Install FGCI repo 
     yum: pkg=http://idris.fgi.csc.fi/fgci7/x86_64/fgci/rpms/fgci-release7-1-1.el7.noarch.rpm
     when: ansible_distribution_major_version == "7"
+
+  - name: install nordugrid repo
+    yum: pkg=https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el7/x86_64/nordugrid-release-6-1.el7.noarch.rpm
+
+  - name: install nordugrid rpm key
+    rpm_key: key=https://download.nordugrid.org/RPM-GPG-KEY-nordugrid-6 state=present
+
+  - name: check if there's a nordugrid.repo.rpmnew
+    stat: path=/etc/yum.repos.d/nordugrid.repo.rpmnew
+    register: arc_frontend_rpmnew_stat
+
+  - name: Replace old nordugrid.repo
+    command: mv /etc/yum.repos.d/nordugrid.repo.rpmnew /etc/yum.repos.d/nordugrid.repo
+    when: arc_frontend_rpmnew_stat.stat.exists
 
   - name: install packages for arc-client
     yum: pkg={{ arc6_client_packages }} state=installed
