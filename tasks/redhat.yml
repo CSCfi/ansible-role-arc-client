@@ -47,6 +47,9 @@
     args:
       executable: /bin/bash
 
+  - name: Copy ops users .bash_profile file to homedir to unset SLURM_EXPORT_ENV
+    copy: src=vomses dest=/etc/vomses owner=root mode=0644
+
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
 
