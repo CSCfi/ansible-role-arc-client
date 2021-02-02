@@ -10,12 +10,12 @@ arc5_client_packages:
  - fgi-lsc-files
 
 arc6_client_packages:
- - nordugrid-arc6
- - nordugrid-arc6-client
- - nordugrid-arc6-plugins-needed
- - nordugrid-arc6-plugins-globus-common
- - nordugrid-arc6-plugins-gridftp
- - nordugrid-arc6-plugins-gridftpjob
+ - nordugrid-arc
+ - nordugrid-arc-client
+ - nordugrid-arc-plugins-needed
+ - nordugrid-arc-plugins-globus-common
+ - nordugrid-arc-plugins-gridftp
+ - nordugrid-arc-plugins-gridftpjob
  - nordugrid-arc-arcctl
 
 fetch_crl_noerrors: True
