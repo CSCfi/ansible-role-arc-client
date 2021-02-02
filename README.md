@@ -33,6 +33,3 @@ License
 
 MIT
 
-Author Information
-------------------
-
