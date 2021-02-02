@@ -9,8 +9,6 @@ Requirements
 
 Repositories that have the Nordugrid ARC client and the related packages.
 
-Tested with Ubuntu 15.10.
-
 Role Variables
 --------------
 
