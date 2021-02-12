@@ -13,10 +13,6 @@
       state: absent
       key: 240a5db2
 
-  - name: Install FGCI repo 
-    yum: pkg=http://idris.fgi.csc.fi/fgci7/x86_64/fgci/rpms/fgci-release7-1-1.el7.noarch.rpm
-    when: ansible_distribution_major_version == "7"
-
   - name: install nordugrid repo
     yum: pkg=https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el7/x86_64/nordugrid-release-6-1.el7.noarch.rpm
 
@@ -33,19 +29,6 @@
 
   - name: install packages for arc-client
     yum: pkg={{ arc6_client_packages }} state=installed
-
-  - name: Download lsc file from voms.fgi.csc.fi
-    shell: arcctl deploy voms-lsc fgi.csc.fi --voms vomss://voms.fgi.csc.fi:8443/voms/fgi.csc.fi
-    args:
-      executable: /bin/bash
-
-  - name: Download lsc file from voms2.cern.ch
-    shell: arcctl deploy voms-lsc ops --voms vomss://voms2.cern.ch:8443/voms/ops
-    args:
-      executable: /bin/bash
-
-  - name: Copy ops users .bash_profile file to homedir to unset SLURM_EXPORT_ENV
-    copy: src=vomses dest=/etc/vomses owner=root mode=0644
 
   - name: template in fetch-crl.d config
     template: src=fetch-crl.conf dest=/etc/fetch-crl.d/proxy.conf mode=0644 owner=root group=root backup=no
