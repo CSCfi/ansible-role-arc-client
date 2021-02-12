@@ -7,7 +7,6 @@ arc5_client_packages:
  - nordugrid-arc-plugins-globus-5.4.4
  - nordugrid-arc-plugins-needed-5.4.4
  - nordugrid-arc-plugins-s3-5.4.4
- - fgi-lsc-files
 
 arc6_client_packages:
  - nordugrid-arc
