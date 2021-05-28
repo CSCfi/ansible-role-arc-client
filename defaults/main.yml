@@ -9,6 +9,7 @@ arc5_client_packages:
  - nordugrid-arc-plugins-s3-5.4.4
 
 arc6_client_packages:
+ - fetch-crl
  - nordugrid-arc
  - nordugrid-arc-client
  - nordugrid-arc-plugins-needed
