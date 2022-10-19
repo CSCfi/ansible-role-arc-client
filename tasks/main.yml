@@ -1,7 +1,9 @@
 ---
 # tasks file for ansible-role-arc-client
 #
-  - include_tasks: redhat.yml
-    when: ansible_os_family == "RedHat"
-  - include_tasks: debian.yml
-    when: ansible_os_family == "Debian"
+- name: Tasks for RedHat
+  ansible.builtin.include_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
+- name: Tasks for Debian
+  ansible.builtin.include_tasks: debian.yml
+  when: ansible_os_family == "Debian"

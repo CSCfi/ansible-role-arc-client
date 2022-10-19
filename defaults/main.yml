@@ -18,21 +18,21 @@ arc6_client_packages:
  - nordugrid-arc-plugins-gridftpjob
  - nordugrid-arc-arcctl
 
-fetch_crl_noerrors: True
+fetch_crl_noerrors: true
 
-repo_egi_trustanchors: True
+repo_egi_trustanchors: true
 
 repo_egi_packages:
  - ca-policy-egi-core
 
 repo_egi_deb_packages:
- - ca-policy-igtf-classic 
- - ca-policy-igtf-mics 
+ - ca-policy-igtf-classic
+ - ca-policy-igtf-mics
  - ca-policy-igtf-slcs
 
-fgci_install: True
+fgci_install: true
 # Define http_proxy to add a proxy to fetch-crl config
-#http_proxy: 10.1.1.2
+# http_proxy: 10.1.1.2
 
 arc_deb_client_packages:
  - fetch-crl
@@ -40,10 +40,10 @@ arc_deb_client_packages:
  - nordugrid-arc-plugins-globus
 
 # set arc_manage_vomses to False to _not_ template in the vomses file on Debian family. For EL7 /etc/vomses comes from the fgi-repofiles rpm.
-arc_manage_vomses: True
+arc_manage_vomses: true
 
-# If True, overwrite the /etc/arc/client.conf file with a FGI/FGCI sensible default
-arc_client_conf: True
+# If true, overwrite the /etc/arc/client.conf file with a FGI/FGCI sensible default
+arc_client_conf: true
 
 # To define your own settings in /etc/arc/client.conf, put them in the below variable
 # arc_client_conf_settings:
